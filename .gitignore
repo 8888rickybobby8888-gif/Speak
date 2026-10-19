@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.vsix
+venv/
+.venv/
+node_modules/
+chart.png
+.DS_Store
+Thumbs.db

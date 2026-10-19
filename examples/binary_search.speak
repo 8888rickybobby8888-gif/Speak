@@ -1,0 +1,13 @@
+note Think of a number from 1 to 32 and answer yes or no. The program finds it.
+low = 1
+high = 32
+while low < high
+    mid = (low + high) // 2
+    ask "Is your number greater than (mid)? (yes or no)" store as answer
+    if answer = "yes" then
+        low = mid + 1
+    else
+        high = mid
+    end if
+end while
+print "Your number is", low

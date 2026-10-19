@@ -1,0 +1,22 @@
+note Python libraries work directly. Needs: pip install numpy
+import numpy as np
+
+numbers = np.array([1, 2, 3, 4, 5])
+print "Numbers:", numbers
+print "Mean:", np.mean(numbers)
+print "Doubled:", numbers * 2
+print "Squared:", numbers ** 2
+
+grid = np.arange(6).reshape(2, 3)
+print grid
+print "Shape:", grid.shape
+print "First row:", grid[0]
+print "Second column:", grid[:, 1]
+print "Evenly spaced:", np.linspace(0, 1, num=5)
+print "Total using call syntax:", call np.sum with numbers
+
+rows, columns = grid.shape
+print "Rows:", rows, "Columns:", columns
+
+big = numbers[numbers > 2]
+print "Bigger than 2:", big

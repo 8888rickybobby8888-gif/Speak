@@ -1,0 +1,18 @@
+note Draws a chart and saves it as a picture. Needs: pip install matplotlib numpy
+use numpy, matplotlib
+
+days = numpy.numbers_from_to(1, 10)
+squared = numpy.power(days, 2)
+
+matplotlib.new_chart(7, 4)
+matplotlib.line_chart(days, squared, "squares")
+matplotlib.line_chart(days, days * 5, "five times")
+matplotlib.title("Growth")
+matplotlib.x_label("Day")
+matplotlib.y_label("Amount")
+matplotlib.legend()
+matplotlib.grid()
+matplotlib.save_chart("chart.png")
+print "Saved chart.png"
+
+note To open a window instead, use: matplotlib.show_chart()

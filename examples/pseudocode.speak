@@ -1,0 +1,55 @@
+# Speak read like pseudocode. Everything here also works in the other styles.
+# Keywords can be in any case. "then" and "do" are optional. "#" starts a comment.
+
+procedure greet(name)
+  output "Hello,", name
+endprocedure
+
+function average(numbers)
+  total <- 0
+  for each n in numbers do
+    increase total by n
+  next n
+  return total / length of numbers
+endfunction
+
+function is_even(number)
+  return number % 2 = 0
+endfunction
+
+greet("Ada")
+
+scores <- [70, 85, 90, 65]            # an assignment arrow
+set best to 0                        # or "set ... to"
+for each score in scores
+  if score > best
+    best <- score
+  endif
+next score
+output "Best score:", best
+
+result <- average(scores)
+output "Average:", result
+IF result >= 75 THEN
+  OUTPUT "Pass"
+ELSE
+  OUTPUT "Try again"
+ENDIF
+
+count <- 0
+repeat
+  increase count
+  if is_even(count) then
+    output count, "is even"
+  endif
+until count >= 4
+
+total <- 0
+i <- 1
+while i <= 5 do
+  total <- total + i
+  increase i by 1
+endwhile
+output "Sum of 1 to 5:", total
+output "Whole number division:", 17 // 5, "remainder", 17 % 5
+output "Not equal works as <>:", 3 <> 4

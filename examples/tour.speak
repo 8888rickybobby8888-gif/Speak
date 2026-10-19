@@ -1,0 +1,65 @@
+note A tour of the Speak language. Lines starting with "note" are comments.
+
+print "Hello, world!"
+
+note Variables use =
+name = "Speak"
+count = 3
+print "Welcome to", name
+
+note Maths uses symbols: + - * / %
+total = count * 4 + 2
+print "Total is", total
+print "Remainder is", total % 5
+total += 1
+print "After adding one:", total
+
+note Decisions: = != < > <= >=
+if total > 10 then
+  print "That is a big total."
+otherwise if total = 10 then
+  print "Exactly ten."
+otherwise
+  print "That is a small total."
+end if
+
+note Loops
+repeat 3 times
+  print "Repeating..."
+end repeat
+
+for number from 1 to 5
+  print "Counting", number
+end for
+
+countdown = 3
+while countdown > 0
+  print countdown
+  countdown -= 1
+end while
+
+note Lists use positions that start at 1
+fruits = a list of "apple", "banana", "cherry"
+add "date" to fruits
+item 2 of fruits = "blueberry"
+for each fruit in fruits
+  print uppercase of fruit
+end for
+print "The first fruit is", item 1 of fruits
+print "There are", length of fruits, "fruits"
+
+note Functions
+define function greet with person, greeting
+  return greeting + ", " + person + "!"
+end function
+
+print call greet with "Ada", "Welcome"
+
+define function factorial with number
+  if number <= 1 then
+    return 1
+  end if
+  return number * call factorial with number - 1
+end function
+
+print "5 factorial is", call factorial with 5

@@ -1,0 +1,20 @@
+note Speak versions of numpy, math, random and time use plain English names.
+note See LIBRARIES.md for everything they offer.
+use numpy, math, random, time
+
+scores = numpy.array([72, 85, 91, 64, 88, 79])
+print "Average score:", numpy.mean(scores)
+print "Spread:", numpy.standard_deviation(scores)
+print "Best score:", numpy.largest(scores), "at position", numpy.position_of_largest(scores)
+print "Sorted:", numpy.sorted_copy(scores)
+print "Curved up by 5:", scores + 5
+
+print "Square root of 144:", math.square_root(144)
+print "Is 29 prime?", math.is_prime(29)
+print "Rolled:", random.roll_dice(), "and", random.coin_flip()
+print "Today is", time.weekday_name(), time.today()
+
+note Anything not covered is still there through .raw
+print "Norm:", numpy.raw.linalg.norm(scores)
+
+note numpy.list_functions() prints every function with a description

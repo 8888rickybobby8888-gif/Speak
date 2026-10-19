@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug current Speak file",
+      "type": "speak",
+      "request": "launch",
+      "program": "${file}",
+      "stopOnEntry": false
+    },
+    {
+      "name": "Try the Speak extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "${workspaceFolder}/examples"
+      ]
+    }
+  ]
+}

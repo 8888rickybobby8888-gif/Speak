@@ -1,0 +1,42 @@
+note Commands and comparisons written in words. The symbol forms work too.
+
+set low to 5
+set high to 10
+print "Start:", low, high
+
+add 3 to low
+subtract 1 from high
+multiply low by 2
+divide high by 3
+print "After changes:", low, high
+
+swap low and high
+print "Swapped:", low, high
+
+let name be "Ada"
+add " Lovelace" to name
+print name
+
+if low is less than 5 and high is at least 10 then
+  print "low is small and high is big"
+else
+  print "something else"
+end if
+
+set total to low plus high times 2
+print "Total:", total, "squared:", total to the power of 2
+
+set shopping to an empty list
+add "milk" to shopping
+add "eggs" to shopping
+print shopping
+if shopping does not contain "bread" then
+  add "bread" to shopping
+end if
+print "Items:", length of shopping
+
+set count to 0
+repeat 3 times
+  increase count
+end repeat
+print "Counted", count

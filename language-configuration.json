@@ -1,0 +1,38 @@
+{
+  "comments": {
+    "lineComment": "note"
+  },
+  "brackets": [
+    [
+      "(",
+      ")"
+    ]
+  ],
+  "autoClosingPairs": [
+    {
+      "open": "(",
+      "close": ")"
+    },
+    {
+      "open": "\"",
+      "close": "\"",
+      "notIn": [
+        "string"
+      ]
+    }
+  ],
+  "surroundingPairs": [
+    [
+      "(",
+      ")"
+    ],
+    [
+      "\"",
+      "\""
+    ]
+  ],
+  "indentationRules": {
+    "increaseIndentPattern": "^\\s*((if|else\\s+if|otherwise\\s+if)\\b.*|(otherwise|else)\\b.*|repeat\\b.*|while\\b.*|for\\b.*|(define\\s+)?(function|procedure|class)\\b.*|when\\s+(created|shown)\\b.*)\\s*$",
+    "decreaseIndentPattern": "^\\s*(end\\s*(if|repeat|while|for|function|procedure|class|when)|next\\b.*|until\\b.*|(otherwise|else)\\b.*)\\s*$"
+  }
+}

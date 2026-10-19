@@ -1,0 +1,15 @@
+note A short light-and-sound routine. Needs a connected rover or the simulator.
+use micromelon as robot, time
+
+robot.connect_to_simulator()
+colours = a list of "red", "orange", "yellow", "green", "blue", "purple"
+notes = a list of "C4", "D4", "E4", "F4", "G4", "A4"
+
+for number from 1 to 6
+  robot.set_all_lights(item number of colours)
+  robot.play_note(item number of notes, 0.3)
+
+robot.silence()
+robot.turn_left(360, 20)
+robot.lights_off()
+robot.disconnect()

@@ -1,0 +1,15 @@
+note Values go straight into text: put a variable or a calculation in brackets.
+name = "Ada"
+score = 41
+ask "Hello (name), what is your favourite number?" store as favourite
+
+print "Hi (name)! Your score is (score), next is (score + 1)."
+print "Your favourite number doubled is (favourite * 2)."
+print "(name) has (length of name) letters."
+
+note Brackets that are not variables are printed as written:
+print "Are you ready? (yes or no)"
+print "Press (1) to start"
+
+note Use a backslash to keep a bracket that would be filled in:
+print "Type \(name) to see the name"

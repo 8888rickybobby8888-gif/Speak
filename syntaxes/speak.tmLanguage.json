@@ -1,0 +1,198 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Speak",
+  "scopeName": "source.speak",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#hashComment"
+    },
+    {
+      "include": "#number"
+    },
+    {
+      "include": "#classDefinition"
+    },
+    {
+      "include": "#functionDefinition"
+    },
+    {
+      "include": "#whenBlock"
+    },
+    {
+      "include": "#callPhrase"
+    },
+    {
+      "include": "#createPhrase"
+    },
+    {
+      "include": "#blockEnd"
+    },
+    {
+      "include": "#control"
+    },
+    {
+      "include": "#statement"
+    },
+    {
+      "include": "#selfWords"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#constant"
+    },
+    {
+      "include": "#builtin"
+    },
+    {
+      "include": "#methodCall"
+    },
+    {
+      "include": "#classCall"
+    },
+    {
+      "include": "#functionCall"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "match": "^\\s*(note)\\b.*$",
+      "name": "comment.line.speak"
+    },
+    "string": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.speak",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.speak"
+        }
+      ]
+    },
+    "number": {
+      "match": "\\b\\d+(\\.\\d+)?\\b",
+      "name": "constant.numeric.speak"
+    },
+    "functionDefinition": {
+      "match": "\\b(define\\s+(?:function|procedure)|function|procedure)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "captures": {
+        "1": {
+          "name": "keyword.control.speak"
+        },
+        "2": {
+          "name": "entity.name.function.definition.speak"
+        }
+      }
+    },
+    "blockEnd": {
+      "match": "\\b(end\\s+(if|repeat|while|for|function|procedure|class|when)|end(if|repeat|while|for|function|procedure|class|when)|next)\\b",
+      "name": "keyword.control.speak"
+    },
+    "control": {
+      "match": "\\b(if|then|otherwise|else|repeat|times|while|for\\s+each|for|from|to|by|in|return|stop\\s+looping|skip\\s+to\\s+next\\s+round|until|do|with|extends)\\b",
+      "name": "keyword.control.speak"
+    },
+    "statement": {
+      "match": "\\b(print|local|global|let|swap|divide|multiply|subtract|input|display|output|decrease|increase|set|ask|store\\s+as|add|remove|call|import|use|be|as)\\b",
+      "name": "keyword.other.speak"
+    },
+    "operator": {
+      "patterns": [
+        {
+          "match": "\\*\\*|//|\\+=|-=|\\*=|/=|!=|<>|==|<-|<=|>=|=|<|>|\\+|-|\\*|/|%|@|[≠≤≥←×÷]",
+          "name": "keyword.operator.speak"
+        },
+        {
+          "match": "\\b(contains|does\\s+not\\s+contain|is\\s+greater\\s+than\\s+or\\s+equal\\s+to|is\\s+less\\s+than\\s+or\\s+equal\\s+to|is\\s+not\\s+equal\\s+to|is\\s+equal\\s+to|is\\s+greater\\s+than|is\\s+less\\s+than|is\\s+at\\s+least|is\\s+at\\s+most|is\\s+not|is|equals|plus|minus|times|multiplied\\s+by|divided\\s+by|modulo|to\\s+the\\s+power\\s+of|and|or|not)\\b",
+          "name": "keyword.operator.word.speak"
+        }
+      ]
+    },
+    "constant": {
+      "match": "\\b(true|false|nothing)\\b",
+      "name": "constant.language.speak"
+    },
+    "builtin": {
+      "match": "\\b(a\\s+list\\s+of|an\\s+empty\\s+list|item|length\\s+of|uppercase\\s+of|lowercase\\s+of|round\\s+of|absolute\\s+value\\s+of|square\\s+root\\s+of|text\\s+version\\s+of|number\\s+version\\s+of|random\\s+number\\s+from)\\b",
+      "name": "support.function.builtin.speak"
+    },
+    "callPhrase": {
+      "match": "\\b(call)\\s+([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*)",
+      "captures": {
+        "1": {
+          "name": "keyword.other.speak"
+        },
+        "2": {
+          "name": "entity.name.function.call.speak"
+        }
+      }
+    },
+    "methodCall": {
+      "match": "(?<=\\.)[A-Za-z_][A-Za-z0-9_]*(?=\\s*\\()",
+      "name": "support.function.library.speak"
+    },
+    "functionCall": {
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\s*\\()",
+      "name": "entity.name.function.call.speak"
+    },
+    "classDefinition": {
+      "match": "\\b(define\\s+class)\\s+([A-Za-z_][A-Za-z0-9_]*)(?:\\s+(extends)\\s+([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*(?:\\s*,\\s*[A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*)*))?",
+      "captures": {
+        "1": {
+          "name": "keyword.control.speak"
+        },
+        "2": {
+          "name": "entity.name.type.class.speak"
+        },
+        "3": {
+          "name": "keyword.control.speak"
+        },
+        "4": {
+          "name": "entity.name.type.class.speak"
+        }
+      }
+    },
+    "whenBlock": {
+      "match": "\\b(when)\\s+(created|shown\\s+as\\s+text)\\b",
+      "captures": {
+        "1": {
+          "name": "keyword.control.speak"
+        },
+        "2": {
+          "name": "entity.name.function.definition.speak"
+        }
+      }
+    },
+    "createPhrase": {
+      "match": "\\b(create)\\s+([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*)",
+      "captures": {
+        "1": {
+          "name": "keyword.other.speak"
+        },
+        "2": {
+          "name": "entity.name.type.class.speak"
+        }
+      }
+    },
+    "selfWords": {
+      "match": "\\b(this|parent)\\b",
+      "name": "variable.language.speak"
+    },
+    "classCall": {
+      "match": "\\b[A-Z][A-Za-z0-9_]*(?=\\s*\\()",
+      "name": "entity.name.type.class.speak"
+    },
+    "hashComment": {
+      "match": "#.*$",
+      "name": "comment.line.number-sign.speak"
+    }
+  }
+}

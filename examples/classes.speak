@@ -1,0 +1,47 @@
+note Classes: define class ... end class
+define class Animal
+  when created with name, sound
+    this.name = name
+    this.sound = sound
+    this.energy = 10
+  end when
+
+  define function speak
+    print this.name, "says", this.sound
+    this.energy -= 1
+  end function
+
+  when shown as text
+    return "Animal called " + this.name
+  end when
+end class
+
+note "extends" makes a child class. "parent" reaches the class above.
+define class Dog extends Animal
+  when created with name
+    call parent with name, "woof"
+    this.tricks = an empty list
+  end when
+
+  define function learn with trick
+    add trick to this.tricks
+    print this.name, "learned", trick
+  end function
+
+  define function speak
+    parent.speak()
+    print "(wags tail)"
+  end function
+end class
+
+pet = create Dog with "Rex"
+pet.learn("sit")
+pet.learn("roll over")
+pet.speak()
+print pet
+print "Energy left:", pet.energy
+print "Tricks:", pet.tricks
+print "Number of tricks:", length of pet.tricks
+
+cat = Animal("Tom", "meow")
+cat.speak()

@@ -1,0 +1,12 @@
+note The classic FizzBuzz, written in Speak.
+for number from 1 to 15
+  if number % 15 = 0 then
+    print "FizzBuzz"
+  otherwise if number % 3 = 0 then
+    print "Fizz"
+  otherwise if number % 5 = 0 then
+    print "Buzz"
+  otherwise
+    print number
+  end if
+end for

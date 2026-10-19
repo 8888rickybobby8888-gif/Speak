@@ -1,0 +1,207 @@
+{
+  "If": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} then",
+      "\t$0",
+      "end if"
+    ]
+  },
+  "If otherwise": {
+    "prefix": "ifotherwise",
+    "body": [
+      "if ${1:condition} then",
+      "\t$2",
+      "otherwise",
+      "\t$0",
+      "end if"
+    ]
+  },
+  "Repeat": {
+    "prefix": "repeat",
+    "body": [
+      "repeat ${1:3} times",
+      "\t$0",
+      "end repeat"
+    ]
+  },
+  "While": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition}",
+      "\t$0",
+      "end while"
+    ]
+  },
+  "For each": {
+    "prefix": "foreach",
+    "body": [
+      "for each ${1:item} in ${2:list}",
+      "\t$0",
+      "end for"
+    ]
+  },
+  "For counting": {
+    "prefix": "forcount",
+    "body": [
+      "for ${1:number} from ${2:1} to ${3:10}",
+      "\t$0",
+      "end for"
+    ]
+  },
+  "Function": {
+    "prefix": "function",
+    "body": [
+      "function ${1:name}(${2:value})",
+      "\t$0",
+      "endfunction"
+    ]
+  },
+  "Ask": {
+    "prefix": "ask",
+    "body": [
+      "ask \"${1:Question?}\" store as ${2:answer}"
+    ]
+  },
+  "Class": {
+    "prefix": "class",
+    "body": [
+      "define class ${1:Name}",
+      "\twhen created with ${2:value}",
+      "\t\tthis.${2:value} = ${2:value}",
+      "\tend when",
+      "",
+      "\tdefine function ${3:action}",
+      "\t\t$0",
+      "\tend function",
+      "end class"
+    ]
+  },
+  "Child class": {
+    "prefix": "classextends",
+    "body": [
+      "define class ${1:Child} extends ${2:Parent}",
+      "\twhen created with ${3:value}",
+      "\t\tcall parent with ${3:value}",
+      "\tend when",
+      "\t$0",
+      "end class"
+    ]
+  },
+  "When created": {
+    "prefix": "whencreated",
+    "body": [
+      "when created with ${1:value}",
+      "\t$0",
+      "end when"
+    ]
+  },
+  "Create": {
+    "prefix": "create",
+    "body": [
+      "${1:thing} = create ${2:Name} with ${3:value}"
+    ]
+  },
+  "Use library": {
+    "prefix": "use",
+    "body": [
+      "use ${1|numpy,pandas,matplotlib,micromelon,math,random,time|}"
+    ]
+  },
+  "Repeat until": {
+    "prefix": "repeatuntil",
+    "body": [
+      "repeat",
+      "\t$0",
+      "until ${1:condition}"
+    ]
+  },
+  "Procedure": {
+    "prefix": "procedure",
+    "body": [
+      "procedure ${1:name}(${2:value})",
+      "\t$0",
+      "endprocedure"
+    ]
+  },
+  "Output": {
+    "prefix": "output",
+    "body": [
+      "output ${1:\"text\"}"
+    ]
+  },
+  "Input": {
+    "prefix": "input",
+    "body": [
+      "input ${1:answer}"
+    ]
+  },
+  "Set": {
+    "prefix": "set",
+    "body": [
+      "set ${1:name} to ${2:value}"
+    ]
+  },
+  "Arrow assignment": {
+    "prefix": "arrow",
+    "body": [
+      "${1:name} <- ${2:value}"
+    ]
+  },
+  "Define function": {
+    "prefix": "define",
+    "body": [
+      "define function ${1:name} with ${2:value}",
+      "\t$0",
+      "end function"
+    ]
+  },
+  "Add to": {
+    "prefix": "addto",
+    "body": [
+      "add ${1:3} to ${2:total}"
+    ]
+  },
+  "Subtract from": {
+    "prefix": "subtractfrom",
+    "body": [
+      "subtract ${1:3} from ${2:total}"
+    ]
+  },
+  "Multiply by": {
+    "prefix": "multiplyby",
+    "body": [
+      "multiply ${1:total} by ${2:2}"
+    ]
+  },
+  "Divide by": {
+    "prefix": "divideby",
+    "body": [
+      "divide ${1:total} by ${2:2}"
+    ]
+  },
+  "Swap": {
+    "prefix": "swap",
+    "body": [
+      "swap ${1:first} and ${2:second}"
+    ]
+  },
+  "Let be": {
+    "prefix": "let",
+    "body": [
+      "let ${1:name} be ${2:value}"
+    ]
+  },
+  "Global": {
+    "prefix": "global",
+    "body": [
+      "global ${1:name}"
+    ]
+  },
+  "Local": {
+    "prefix": "local",
+    "body": [
+      "local ${1:name}"
+    ]
+  }
+}

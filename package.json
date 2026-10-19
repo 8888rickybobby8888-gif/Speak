@@ -1,0 +1,209 @@
+{
+  "name": "speak-language",
+  "displayName": "Speak",
+  "description": "Speak: a readable pseudocode language that runs on Python. Write it like pseudocode, get mistakes flagged as you type, use plain-English numpy/pandas/matplotlib/Micromelon libraries, classes, and a debugger.",
+  "version": "0.9.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "speak",
+        "aliases": [
+          "Speak",
+          "speak"
+        ],
+        "extensions": [
+          ".speak"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/speak-file.svg",
+          "dark": "./icons/speak-file.svg"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "speak",
+        "scopeName": "source.speak",
+        "path": "./syntaxes/speak.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "speak",
+        "path": "./snippets/speak.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "speak.runFile",
+        "title": "Run Speak File",
+        "icon": "$(play)"
+      },
+      {
+        "command": "speak.debugFile",
+        "title": "Debug Speak File",
+        "icon": "$(debug-alt)"
+      }
+    ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "command": "speak.runFile",
+          "when": "resourceLangId == speak",
+          "group": "navigation@1"
+        },
+        {
+          "command": "speak.debugFile",
+          "when": "resourceLangId == speak",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "speak.runFile",
+        "key": "ctrl+f5",
+        "when": "editorLangId == speak"
+      }
+    ],
+    "configuration": {
+      "title": "Speak",
+      "properties": {
+        "speak.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Python to run Speak files with. Leave empty to use the interpreter selected in the Python extension, or 'python'."
+        },
+        "speak.checkWhileTyping": {
+          "type": "boolean",
+          "default": true,
+          "description": "Check .speak files as you type and show mistakes in the Problems panel, without running them."
+        }
+      }
+    },
+    "configurationDefaults": {
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "entity.name.function.definition.speak",
+            "settings": {
+              "foreground": "#E0A030",
+              "fontStyle": "bold"
+            }
+          },
+          {
+            "scope": "entity.name.function.call.speak",
+            "settings": {
+              "foreground": "#2AA5D9"
+            }
+          },
+          {
+            "scope": "support.function.library.speak",
+            "settings": {
+              "foreground": "#B07CE8"
+            }
+          },
+          {
+            "scope": "support.function.builtin.speak",
+            "settings": {
+              "foreground": "#3FB68B"
+            }
+          },
+          {
+            "scope": "entity.name.type.class.speak",
+            "settings": {
+              "foreground": "#E5738A",
+              "fontStyle": "bold"
+            }
+          },
+          {
+            "scope": "variable.language.speak",
+            "settings": {
+              "foreground": "#E5738A",
+              "fontStyle": "italic"
+            }
+          }
+        ]
+      }
+    },
+    "breakpoints": [
+      {
+        "language": "speak"
+      }
+    ],
+    "debuggers": [
+      {
+        "type": "speak",
+        "label": "Speak",
+        "languages": [
+          "speak"
+        ],
+        "configurationAttributes": {
+          "launch": {
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "The .speak file to run.",
+                "default": "${file}"
+              },
+              "stopOnEntry": {
+                "type": "boolean",
+                "description": "Pause on the first line.",
+                "default": false
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Folder to run in. Defaults to the program's folder."
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "speak",
+            "request": "launch",
+            "name": "Debug Speak file",
+            "program": "${file}",
+            "stopOnEntry": false
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "Speak: Debug file",
+            "description": "Debug the current .speak file",
+            "body": {
+              "type": "speak",
+              "request": "launch",
+              "name": "Debug Speak file",
+              "program": "${file}",
+              "stopOnEntry": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "icon": "icons/speak.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/8888rickybobby8888-gif/Speak.git"
+  },
+  "homepage": "https://github.com/8888rickybobby8888-gif/Speak",
+  "bugs": {
+    "url": "https://github.com/8888rickybobby8888-gif/Speak/issues"
+  },
+  "license": "GPL-2.0-only"
+}

@@ -1,0 +1,24 @@
+note Obstacle avoider for a Micromelon rover.
+note Start the Micromelon Robot Simulator first (or use connect_by_bluetooth(your robot number)).
+note Needs: pip install micromelon
+use micromelon as robot
+
+robot.connect_to_simulator()
+robot.set_all_lights("green")
+print "Battery:", robot.battery_percentage(), "percent"
+
+repeat 20 times
+  distance = robot.distance_ahead()
+  if distance < 25 then
+    print "Obstacle", distance, "cm away. Turning."
+    robot.set_all_lights("red")
+    robot.play_note("C4", 0.2)
+    robot.turn_right(90)
+  otherwise
+    robot.set_all_lights("green")
+    robot.drive_forward_distance(10)
+
+robot.stop_moving()
+robot.lights_off()
+robot.disconnect()
+print "Finished"
